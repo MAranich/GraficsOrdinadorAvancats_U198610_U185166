@@ -170,7 +170,8 @@
     <ClCompile Include="..\..\src\shapes\shape.cpp" />
     <ClCompile Include="..\..\src\shapes\sphere.cpp" />
     <ClCompile Include="..\..\src\shapes\square.cpp" />
-	<ClCompile Include="..\..\src\shaders\normalshader.cpp"/>
+    <ClCompile Include="..\..\src\shaders\normalshader.cpp" />
+    <ClCompile Include="whittedintegrator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\cameras\camera.h" />
@@ -200,6 +201,7 @@
     <ClInclude Include="..\..\src\shapes\shape.h" />
     <ClInclude Include="..\..\src\shapes\sphere.h" />
     <ClInclude Include="..\..\src\shapes\square.h" />
+    <ClInclude Include="whittedintegrator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

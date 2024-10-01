@@ -17,6 +17,8 @@
 #include "shaders/intersectionshader.h"
 #include "shaders/depthshader.h"
 #include "shaders/normalshader.h"
+#include "shaders/whittedintegrator.h"
+
 
 
 #include "materials/phong.h"
@@ -221,7 +223,7 @@ int main()
 
 
     // Declare the shader
-    Vector3D bgColor(0.0, 0.0, 0.0); // Background color (for rays which do not intersect anything)
+    Vector3D bgColor(0.1, 0.1, 0.1); // Background color (for rays which do not intersect anything)
     Vector3D intersectionColor(1,0,0);
     
     //First Assignment
@@ -247,8 +249,10 @@ int main()
     PaintImage(film);
 
     // Launch some rays! TASK 2,3,...   
+    Material* redDiffuse = new Phong(Vector3D(0.7, 0.2, 0.3), Vector3D(0, 0, 0), 100);
+    Shader* shader_phong = new whittedintegrator(bgColor); 
     auto start = high_resolution_clock::now();
-    raytrace(cam, redDiffuse, film, myScene.objectsList, myScene.LightSourceList);
+    raytrace(cam, shader_phong, film, myScene.objectsList, myScene.LightSourceList);
     auto stop = high_resolution_clock::now();
 
     

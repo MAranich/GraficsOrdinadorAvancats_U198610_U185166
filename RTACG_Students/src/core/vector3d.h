@@ -32,6 +32,8 @@ struct Vector3D
     double lengthSq()    const;
     Vector3D normalized() const;
 
+    double dot(Vector3D other) const; 
+
 
 
     // Structure data

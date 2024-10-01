@@ -128,3 +128,9 @@ std::ostream& operator<<(std::ostream& out, const Vector3D &v)
     out << "[" << v.x << ", " << v.y << ", " << v.z << "]";
     return out;
 }
+
+double Vector3D::dot(Vector3D other) const {
+    return x * other.x + y * other.y + z * other.z; 
+}
+
+
