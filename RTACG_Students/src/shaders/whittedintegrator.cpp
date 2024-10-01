@@ -33,11 +33,13 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 		Vector3D light_dir = pos - collision_point; 
 
 		Ray light_ray = Ray(&collision_point, &light_dir, 0, Epsilon, 1.0); 
-		bool has_collided = has_intersection(light_ray, objList); 
+		//bool has_collided = has_intersection(light_ray, objList); 
+		bool has_collided = hasIntersection(light_ray, objList, intersection);
 
-		if has_collided {
-			continue; 
+		if (has_collided) {
+			continue;
 		}
+	
 
 		Material* mat = intersection.shape.getMaterial();
 		Vector3D normal = intersection.normal; 
@@ -47,7 +49,7 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 
 		Vector3D color = diffuse + specular; 
 		double coef = normal.dot(wi); 
-		if coef <= 0 {
+		if (coef <= 0) {
 			// coef = max(coef, 0)
 			coef = 0; 
 		}

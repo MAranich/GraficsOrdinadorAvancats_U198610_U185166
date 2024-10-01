@@ -171,7 +171,7 @@
     <ClCompile Include="..\..\src\shapes\sphere.cpp" />
     <ClCompile Include="..\..\src\shapes\square.cpp" />
     <ClCompile Include="..\..\src\shaders\normalshader.cpp" />
-    <ClCompile Include="whittedintegrator.cpp" />
+    <ClCompile Include="..\..\src\shaders\whittedintegrator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\cameras\camera.h" />
