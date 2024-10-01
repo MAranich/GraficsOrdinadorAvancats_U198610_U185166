@@ -189,20 +189,22 @@ void PaintImage(Film* film)
 {
     unsigned int sizeBar = 40;
 
-    size_t resX = film->getWidth();
-    size_t resY = film->getHeight();
+    double resX = (double)film->getWidth();
+    double resY = (double)film->getHeight();
+
+    size_t max_size = ((size_t)resY / sizeBar); 
 
     // Main Image Loop
     for (size_t lin = 0; lin < resY; lin++)
     {
         // Show progression
-        if (lin % (resY / sizeBar) == 0)
+        if (lin % max_size == 0)
             std::cout << ".";
 
         for (size_t col = 0; col < resX; col++)
         { 
             //CHANGE...()
-            Vector3D random_color = Vector3D(col / (double)resX, lin / (double)resY,0);
+            Vector3D random_color = Vector3D(col / resX, lin / resY,0);
             //Vector3D random_color = Vector3D(1.0* col/resX, 0.0, 0.0); gradient
             //1.0 - float, 1 negre (integer)
             film->setPixelValue(col,lin, random_color);

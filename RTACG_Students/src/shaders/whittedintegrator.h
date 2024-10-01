@@ -1,5 +1,7 @@
 #pragma once
 #include "shader.h"
+#include "..\core\utils.h"
+
 class whittedintegrator : public Shader {
 public: 
 	whittedintegrator(); 
