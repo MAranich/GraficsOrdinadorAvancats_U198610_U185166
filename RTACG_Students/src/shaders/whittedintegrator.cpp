@@ -15,11 +15,11 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 
 
 	Intersection intersection; 
-	bool intersection_exists = Utils::getClosestIntersection(r, objList, &intersection); 
+	bool intersection_exists = Utils::getClosestIntersection(r, objList, intersection); 
 
 	if (intersection_exists) {
 		// no direct collision with light, just ambient light 
-		return bg_color;
+		return Shader::bgColor;
 	}
 
 	Vector3D collision_point = intersection.itsPoint; 
@@ -33,7 +33,7 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 
 		Ray light_ray = Ray(collision_point, light_dir, (size_t)0, Epsilon, 1.0);
 		//bool has_collided = has_intersection(light_ray, objList); 
-		bool has_collided = Utils::hasIntersection(light_ray, objList, intersection);
+		bool has_collided = Utils::hasIntersection(light_ray, objList);
 
 		if (has_collided) {
 			continue;

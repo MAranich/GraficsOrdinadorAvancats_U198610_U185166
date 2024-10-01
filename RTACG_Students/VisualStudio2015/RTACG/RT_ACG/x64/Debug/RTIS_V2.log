@@ -1,45 +1,11 @@
-﻿  normalshader.cpp
+﻿  main.cpp
+C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\main.cpp(267,21): warning C4244: 'inicializando': conversión de '_Rep' a 'float'; posible pérdida de datos
+C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\main.cpp(267,21): warning C4244:         with
+C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\main.cpp(267,21): warning C4244:         [
+C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\main.cpp(267,21): warning C4244:             _Rep=double
+C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\main.cpp(267,21): warning C4244:         ]
+  intersectionshader.cpp
   whittedintegrator.cpp
   Generando código...
-C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(18,2): error C3861: 'getClosestIntersection': no se encontró el identificador
-C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(20,19): error C2676: '==' binario: 'Intersection' no define este operador o una conversión a un tipo aceptable para el operador predefinido
-C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(22,10): error C2065: 'bg_color': identificador no declarado
-C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(29,22): error C2653: 'lsList': no es un nombre de clase o espacio de nombres
-C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(29,30): error C3861: 'size': no se encontró el identificador
-C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(34,22): error C2440: '<function-style-cast>': no se puede realizar la conversión de 'initializer list' a 'Ray'
-      C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(34,22):
-      'Ray::Ray':ninguna función sobrecargada pudo convertir todos los tipos de argumento
-          C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\core\ray.h(20,5):
-          puede ser 'Ray::Ray(const Vector3D &,const Vector3D &,size_t,double,double)'
-              C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(34,22):
-              'Ray::Ray(const Vector3D &,const Vector3D &,size_t,double,double)': el argumento 1 no puede convertirse de 'Vector3D *' a 'const Vector3D &'
-                  C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(34,23):
-                  Razón: no se puede realizar la conversión de 'Vector3D *' a 'const Vector3D'
-                  C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(34,23):
-                  'Vector3D::Vector3D':ninguna función sobrecargada pudo convertir todos los tipos de argumento
-                      C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\core\vector3d.h(12,5):
-                      puede ser 'Vector3D::Vector3D(const Vector3D &)'
-                          C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(34,23):
-                          'Vector3D::Vector3D(const Vector3D &)': el argumento 1 no puede convertirse de 'Vector3D *' a 'const Vector3D &'
-                              C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(34,23):
-                              Razón: no se puede realizar la conversión de 'Vector3D *' a 'const Vector3D'
-                              C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(34,23):
-                              La conversión requiere un segundo operador de conversión definido por el usuario o constructor
-                      C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\core\vector3d.h(10,5):
-                      o       'Vector3D::Vector3D(double)'
-                          C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(34,23):
-                          'Vector3D::Vector3D(double)': el argumento 1 no puede convertirse de 'Vector3D *' a 'double'
-                              C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(34,23):
-                              No existe un contexto en el que sea posible realizar esta conversión
-                      C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(34,23):
-                      al hacer coincidir la lista de argumentos '(Vector3D *)'
-          C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(34,22):
-          al hacer coincidir la lista de argumentos '(Vector3D *, Vector3D *, int, double, double)'
-  
-C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(36,23): error C3861: 'hasIntersection': no se encontró el identificador
-C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(46,22): error C2825: 'mat': debe ser una clase o un espacio de nombres cuando vaya seguido de '::'
-C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(46,27): error C2510: 'mat': el operando izquierdo de '::' debe ser class/struct/union
-C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(46,27): error C3861: 'getDiffuseReflectance': no se encontró el identificador
-C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(47,23): error C2825: 'mat': debe ser una clase o un espacio de nombres cuando vaya seguido de '::'
-C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(47,28): error C2510: 'mat': el operando izquierdo de '::' debe ser class/struct/union
-C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(47,28): error C3861: 'getReflectance': no se encontró el identificador
+  LINK : no se encontró C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\VisualStudio2015\RTACG\x64\Debug\RT_ACG.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+  RTIS_V2.vcxproj -> C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\VisualStudio2015\RTACG\x64\Debug\RT_ACG.exe
