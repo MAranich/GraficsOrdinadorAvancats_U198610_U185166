@@ -13,11 +13,13 @@ Vector3D Phong::getReflectance(const Vector3D& n, const Vector3D& wo,
     const Vector3D& wi) const {
 
     //FILL(...)
-    //wr = 2*(n*wi)*n - wi
-    //f = Vector3D(kd/)
-
-
-    return Vector3D(0.0);
+    double dot_p = (n * wi).length();
+    Vector3D wr = n * 2 * dot_p - wi;
+    double dot_p2 = pow((wo * wr).length(), alpha);
+    Vector3D specular = Ks * dot_p2;
+    double pi = 3.14159265358979323846;
+    Vector3D fs = rho_d / pi + specular;
+    return fs;
 
 };
 
