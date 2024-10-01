@@ -2,6 +2,7 @@
 #define INTERSECTIONSHADER_H
 
 #include "shader.h"
+#include "Utils.h"
 
 class IntersectionShader : public Shader
 {
