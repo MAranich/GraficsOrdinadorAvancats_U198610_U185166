@@ -2,6 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\core",
     "\\src\\materials",
     "\\src\\shaders",
     "\\VisualStudio2015",

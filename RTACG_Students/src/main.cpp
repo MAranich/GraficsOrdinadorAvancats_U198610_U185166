@@ -233,6 +233,7 @@ int main()
     //for each pixel of the shader a ray, red or black (when it goes to infinity)
     Shader *depthshader = new DepthShader (intersectionColor,7.5f, bgColor);
     Shader *normalshader = new NormalShader(intersectionColor, bgColor);
+    Shader *whittedintegrator2 = new whittedintegrator(bgColor);
     //(... normal, whitted) ...
 
   
@@ -252,9 +253,9 @@ int main()
 
     // Launch some rays! TASK 2,3,...   
     Material* redDiffuse = new Phong(Vector3D(0.7, 0.2, 0.3), Vector3D(0, 0, 0), 100);
-    Shader* shader_phong = new whittedintegrator(bgColor); 
+    //Shader* shader_phong = new whittedintegrator(bgColor); 
     auto start = high_resolution_clock::now();
-    raytrace(cam, shader_phong, film, myScene.objectsList, myScene.LightSourceList);
+    raytrace(cam, whittedintegrator2, film, myScene.objectsList, myScene.LightSourceList);
     auto stop = high_resolution_clock::now();
 
     
