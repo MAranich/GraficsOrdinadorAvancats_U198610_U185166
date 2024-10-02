@@ -33,7 +33,7 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 	for (const LightSource* light : lsList) {
 
 		Vector3D light_pos = light->sampleLightPosition(); 
-		Vector3D shadow_dir = collision_point - light_pos;
+		Vector3D shadow_dir = light_pos - collision_point;
 		double shadow_length = shadow_dir.length(); 
 		Vector3D shadow_dir_norm = shadow_dir / shadow_length;
 

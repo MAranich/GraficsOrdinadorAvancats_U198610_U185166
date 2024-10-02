@@ -3,13 +3,13 @@
   "WorkspaceRootPath": "C:\\Users\\Universitat\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\VisualStudio2015\\RTACG\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\Universitat\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\Universitat\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\shaders\\whittedintegrator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\Universitat\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\materials\\phong.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\Universitat\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EE03A110-7735-41D4-B6A3-A3801C61B3EB}|RTIS_V2.vcxproj|C:\\Users\\Universitat\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\lightsources\\pointlightsource.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
@@ -22,11 +22,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "whittedintegrator.cpp",
               "DocumentMoniker": "C:\\Users\\Universitat\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\shaders\\whittedintegrator.cpp",
               "RelativeDocumentMoniker": "..\\..\\src\\shaders\\whittedintegrator.cpp",
@@ -53,7 +53,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "phong.cpp",
               "DocumentMoniker": "C:\\Users\\Universitat\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\materials\\phong.cpp",
               "RelativeDocumentMoniker": "..\\..\\src\\materials\\phong.cpp",
@@ -66,7 +66,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\Universitat\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\main.cpp",
               "RelativeDocumentMoniker": "..\\..\\src\\main.cpp",
