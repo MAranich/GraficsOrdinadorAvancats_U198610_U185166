@@ -141,6 +141,11 @@ void buildSceneSphere(Camera*& cam, Film*& film,
     myScene.AddObject(s2);
     myScene.AddObject(s3);
    
+
+    PointLightSource* myPointLight = new PointLightSource(Vector3D(0, 2.5, 3.0), Vector3D(2.0));
+    myScene.AddPointLight(myPointLight); 
+
+
 }
 
 void raytrace(Camera* &cam, Shader* &shader, Film* &film,
@@ -252,7 +257,7 @@ int main()
     PaintImage(film);
 
     // Launch some rays! TASK 2,3,...   
-    Material* redDiffuse = new Phong(Vector3D(0.7, 0.2, 0.3), Vector3D(0, 0, 0), 100);
+    //Material* redDiffuse = new Phong(Vector3D(0.7, 0.2, 0.3), Vector3D(0, 0, 0), 100);
     //Shader* shader_phong = new whittedintegrator(bgColor); 
     auto start = high_resolution_clock::now();
     raytrace(cam, whittedintegrator2, film, myScene.objectsList, myScene.LightSourceList);

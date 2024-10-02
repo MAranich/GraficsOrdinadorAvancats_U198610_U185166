@@ -1,11 +1,6 @@
-﻿  main.cpp
-C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\main.cpp(267,21): warning C4244: 'inicializando': conversión de '_Rep' a 'float'; posible pérdida de datos
-C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\main.cpp(267,21): warning C4244:         with
-C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\main.cpp(267,21): warning C4244:         [
-C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\main.cpp(267,21): warning C4244:             _Rep=double
-C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\main.cpp(267,21): warning C4244:         ]
-  intersectionshader.cpp
-  whittedintegrator.cpp
-  Generando código...
-  LINK : no se encontró C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\VisualStudio2015\RTACG\x64\Debug\RT_ACG.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+﻿  whittedintegrator.cpp
+C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(26,9): warning C4477: 'printf' : la cadena de formato '%d' requiere un argumento de tipo 'int', pero el argumento variádico 1 tiene el tipo 'unsigned __int64'
+      C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\src\shaders\whittedintegrator.cpp(26,9):
+      considere el uso de ' %zd' en la cadena de formato
+  
   RTIS_V2.vcxproj -> C:\Users\Universitat\Documents\GitHub\GraficsOrdinadorAvancats_U198610_U185166\RTACG_Students\VisualStudio2015\RTACG\x64\Debug\RT_ACG.exe
