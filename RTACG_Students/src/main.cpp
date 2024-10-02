@@ -142,7 +142,7 @@ void buildSceneSphere(Camera*& cam, Film*& film,
     myScene.AddObject(s3);
    
 
-    PointLightSource* myPointLight = new PointLightSource(Vector3D(0, 2.5, 3.0), Vector3D(2.0));
+    PointLightSource* myPointLight = new PointLightSource(Vector3D(0, 2.5, 3.0), Vector3D(1.0));
     myScene.AddPointLight(myPointLight); 
 
 
@@ -249,8 +249,8 @@ int main()
     Camera* cam;
     Scene myScene;
     //Create Scene Geometry and Illumiantion
-    buildSceneSphere(cam, film, myScene); //Task 2,3,4;
-    //buildSceneCornellBox(cam, film, myScene); //Task 5
+    //buildSceneSphere(cam, film, myScene); //Task 2,3,4;
+    buildSceneCornellBox(cam, film, myScene); //Task 5
 
     //---------------------------------------------------------------------------
     //Paint Image ONLY TASK 1

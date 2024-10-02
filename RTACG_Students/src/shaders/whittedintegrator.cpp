@@ -49,10 +49,9 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 		normal = normal.normalized(); 
 
 
-		Vector3D diffuse = mat.getDiffuseReflectance();
 		Vector3D specular = mat.getReflectance(normal, camera_ray, shadow_dir_norm);
 
-		Vector3D color = diffuse + specular;
+		Vector3D color = specular;
 		double coef = normal.dot(shadow_dir_norm);
 
 		if (coef == 0) printf("COEF 0\n");
@@ -72,7 +71,7 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 		final_color = final_color + increment;
 	}
 
-	Vector3D ambient = Vector3D(0.1, 0.0, 0.0);
+	Vector3D ambient = Vector3D(0.05);
 	final_color = final_color + ambient;
 
 	return final_color;
