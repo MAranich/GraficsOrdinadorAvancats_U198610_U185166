@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\materials\\material.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\materials\\material.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\materials\\mirror.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\materials\\mirror.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\materials\\mirror.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\materials\\mirror.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\materials\\mirror.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\materials\\mirror.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\materials\\material.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\materials\\material.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\materials\\phong.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -110,7 +110,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 24,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -118,13 +118,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "mirror.cpp",
               "DocumentMoniker": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\materials\\mirror.cpp",
               "RelativeDocumentMoniker": "src\\materials\\mirror.cpp",
               "ToolTip": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\materials\\mirror.cpp",
               "RelativeToolTip": "src\\materials\\mirror.cpp",
-              "ViewState": "AgIAABcAAABAMzMzMzMlwCsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAABIAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-02T18:35:29.473Z",
               "EditorCaption": ""
@@ -139,25 +139,24 @@
               "RelativeToolTip": "src\\materials\\emissive.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-02T18:34:33.145Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-02T18:34:33.145Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "mirror.h",
               "DocumentMoniker": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\materials\\mirror.h",
               "RelativeDocumentMoniker": "src\\materials\\mirror.h",
               "ToolTip": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\materials\\mirror.h",
               "RelativeToolTip": "src\\materials\\mirror.h",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAAABsAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-02T18:33:27.781Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "material.cpp",
               "DocumentMoniker": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\materials\\material.cpp",
               "RelativeDocumentMoniker": "src\\materials\\material.cpp",
@@ -178,8 +177,7 @@
               "RelativeToolTip": "src\\materials\\material.h",
               "ViewState": "AgIAAAQAAABAMzMzMzMrwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-02T17:41:16.051Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-02T17:41:16.051Z"
             },
             {
               "$type": "Document",
@@ -371,8 +369,7 @@
               "RelativeToolTip": "src\\materials\\phong.cpp",
               "ViewState": "AgIAAAwAAAAAAAAAAAAkwBEAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-01T08:53:28.407Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-01T08:53:28.407Z"
             },
             {
               "$type": "Document",
@@ -400,13 +397,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\main.cpp",
               "RelativeDocumentMoniker": "src\\main.cpp",
               "ToolTip": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\main.cpp",
               "RelativeToolTip": "src\\main.cpp",
-              "ViewState": "AgIAACoAAAAAAAAAAAAvwDkAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAIwDgAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-01T08:46:49.257Z",
               "EditorCaption": ""
