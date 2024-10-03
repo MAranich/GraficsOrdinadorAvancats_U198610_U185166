@@ -23,6 +23,7 @@
 
 #include "materials/phong.h"
 #include "materials/mirror.h"
+#include "materials/glass.h"
 #include "materials/emissive.h"
 
 #include <chrono>
@@ -56,7 +57,8 @@ void buildSceneCornellBox(Camera*& cam, Film*& film,
     //Task 5.3
     Material* mirror = new Mirror();
     //Task 5.4
-    //Material* transmissive = new Transmissive(0.7);
+    // Material* transmissive = new Glass(Vector3D(5.0 / 255, 237.0 / 255, 144.0 / 255), 0.717);
+    Material* transmissive = new Glass(0.717);
 
 
     /* ******* */
@@ -87,6 +89,7 @@ void buildSceneCornellBox(Camera*& cam, Film*& film,
     Matrix4x4 sphereTransform2;
     sphereTransform2 = Matrix4x4::translate(Vector3D(-1.5, -offset + 3*radius, 4));
     Shape* s2 = new Sphere(radius, sphereTransform2, blueGlossy_80);
+    //Shape* s2 = new Sphere(radius, sphereTransform2, transmissive);
 
     //Shape* square = new Square(Vector3D(offset + 0.999, -offset - 0.2, 3.0), Vector3D(0.0, 4.0, 0.0), Vector3D(0.0, 0.0, 2.0), Vector3D(-1.0, 0.0, 0.0), cyandiffuse);
     Shape* square = new Square(Vector3D(offset + 0.999, -offset-0.2, 3.0), Vector3D(0.0, 4.0, 0.0), Vector3D(0.0, 0.0, 2.0), Vector3D(-1.0, 0.0, 0.0), mirror);

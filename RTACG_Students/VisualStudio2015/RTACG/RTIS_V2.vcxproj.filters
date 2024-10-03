@@ -120,6 +120,9 @@
     <ClCompile Include="..\..\src\materials\mirror.cpp">
       <Filter>src\materials</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\materials\glass.cpp">
+      <Filter>src\materials</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\cameras\camera.h">
@@ -207,6 +210,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\materials\mirror.h">
+      <Filter>src\materials</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\materials\glass.h">
       <Filter>src\materials</Filter>
     </ClInclude>
   </ItemGroup>

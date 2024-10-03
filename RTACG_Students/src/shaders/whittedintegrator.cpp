@@ -51,19 +51,71 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 		bool material_has_specular = mat.hasSpecular();
 		bool material_has_diffuse_glossy = mat.hasDiffuseOrGlossy(); 
 
-		if (material_has_specular) {
-			// Is a mirror. 
 
-			Vector3D reflected_ray_dir = camera_ray.reflection(normal); 
-			Ray reflected_ray = Ray(collision_point, reflected_ray_dir, r.depth + 1); 
 
-			Vector3D color = computeColor(reflected_ray, objList, lsList); 
+		bool material_is_transparent = mat.hasTransmission(); 
+		bool total_internal_reflection = false; 
 
-			final_color = final_color + color;
-			continue; 
+
+
+
+
+		double normal_dot_wo = 0.0; 
+		double inner_sqrt_val = 1.0; 
+		double mu = sqrt(2.0) / 2.0; 
+		if (material_is_transparent) {
+			if (0 <= r.d.dot(normal)) { 
+				// from_inside_material
+				mu = 1 / mu; 
+			}
+
+			// camera_ray may be -1 *
+			normal_dot_wo = camera_ray.dot(normal); 
+
+			inner_sqrt_val = 1 - mu * mu * (1 - normal_dot_wo * normal_dot_wo); 
+
+
+
+			if (inner_sqrt_val < 0) {
+				// Total internal reflection
+				total_internal_reflection = true; 
+				material_has_specular = true; 
+			}
+
 
 		}
 
+		if (!total_internal_reflection) {
+			//material_is_transparent
+
+			double parenthesis = mu * normal_dot_wo - sqrt(inner_sqrt_val);
+
+			Vector3D refraction_dir = camera_ray * (-mu) + normal * parenthesis;
+
+			Ray refraction_ray = Ray(collision_point, refraction_dir, r.depth + 1); 
+			Vector3D color = computeColor(refraction_ray, objList, lsList);
+
+			color = color * mat.getDiffuseReflectance(); 
+
+			final_color = final_color + color;
+
+			continue;
+
+		}
+
+
+		if (material_has_specular) {
+			// Is a mirror. 
+
+			Vector3D reflected_ray_dir = camera_ray.reflection(normal);
+			Ray reflected_ray = Ray(collision_point, reflected_ray_dir, r.depth + 1);
+
+			Vector3D color = computeColor(reflected_ray, objList, lsList);
+
+			final_color = final_color + color;
+			continue;
+
+		}
 
 		Vector3D color = mat.getReflectance(normal, camera_ray, shadow_dir_norm);
 
