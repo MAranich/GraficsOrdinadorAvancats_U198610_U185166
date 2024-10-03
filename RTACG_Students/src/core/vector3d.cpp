@@ -133,4 +133,16 @@ double Vector3D::dot(Vector3D other) const {
     return x * other.x + y * other.y + z * other.z; 
 }
 
+Vector3D Vector3D::reflection(Vector3D normal) const
+{
+    // Self is incident ray, normal is normal; 
+    // Compute perfect reflected ray
+
+    Vector3D self = Vector3D(x, y, z); 
+    
+    Vector3D reflected_ray = normal * (2 * normal.dot(self)) - self;
+
+    return reflected_ray;
+}
+
 

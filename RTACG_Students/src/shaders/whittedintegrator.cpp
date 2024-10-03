@@ -48,18 +48,34 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 		Vector3D normal = intersection.normal;
 		normal = normal.normalized(); 
 
+		bool material_has_specular = mat.hasSpecular();
+		bool material_has_diffuse_glossy = mat.hasDiffuseOrGlossy(); 
 
-		Vector3D specular = mat.getReflectance(normal, camera_ray, shadow_dir_norm);
+		if (material_has_specular) {
+			// Is a mirror. 
 
-		Vector3D color = specular;
+			Vector3D reflected_ray_dir = camera_ray.reflection(normal); 
+			Ray reflected_ray = Ray(collision_point, reflected_ray_dir, r.depth + 1); 
+
+			Vector3D color = computeColor(reflected_ray, objList, lsList); 
+
+			final_color = final_color + color;
+			continue; 
+
+		}
+
+
+		Vector3D color = mat.getReflectance(normal, camera_ray, shadow_dir_norm);
+
 		double coef = normal.dot(shadow_dir_norm);
 
+		/* 
 		if (coef == 0) printf("COEF 0\n");
 		if (coef <= 0) {
 			// coef = max(coef, 0)
 			coef = 0;
 		}
-
+		*/
 
 
 		color = color * coef;

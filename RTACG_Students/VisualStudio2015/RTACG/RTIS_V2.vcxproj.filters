@@ -111,6 +111,15 @@
     <ClCompile Include="..\..\src\core\scene.cpp">
       <Filter>src\core</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\shaders\normalshader.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shaders\whittedintegrator.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\materials\mirror.cpp">
+      <Filter>src\materials</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\cameras\camera.h">
@@ -193,6 +202,12 @@
     </ClInclude>
     <ClInclude Include="..\..\src\lightsources\lightsource.h">
       <Filter>src\lightsources</Filter>
+    </ClInclude>
+    <ClInclude Include="whittedintegrator.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\materials\mirror.h">
+      <Filter>src\materials</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
