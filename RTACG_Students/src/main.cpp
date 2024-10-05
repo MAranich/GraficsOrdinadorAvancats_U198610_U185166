@@ -214,10 +214,10 @@ void PaintImage(Film* film)
         for (size_t col = 0; col < resX; col++)
         { 
             //CHANGE...()
-            Vector3D random_color = Vector3D(col / resX, lin / resY,0);
+            Vector3D color = Vector3D(col / resX, lin / resY,0);
             //Vector3D random_color = Vector3D(1.0* col/resX, 0.0, 0.0); gradient
             //1.0 - float, 1 negre (integer)
-            film->setPixelValue(col,lin, random_color);
+            film->setPixelValue(col,lin, color);
            
         }
     }
