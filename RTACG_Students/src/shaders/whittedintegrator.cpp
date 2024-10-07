@@ -57,13 +57,13 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 		bool total_internal_reflection = false; 
 
 
-
-
-
 		double normal_dot_wo = 0.0; 
-		double inner_sqrt_val = 1.0; 
-		double mu = sqrt(2.0) / 2.0; 
+		double inner_sqrt_val = 0.0; 
+		double mu = 0.0; 
+		// ^^^ Deafult values to avoid uninitilized memory
+
 		if (material_is_transparent) {
+			mu = mat.getIndexOfRefraction(); 
 			if (0 <= r.d.dot(normal)) { 
 				// from_inside_material
 				mu = 1 / mu; 
@@ -74,19 +74,15 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 
 			inner_sqrt_val = 1 - mu * mu * (1 - normal_dot_wo * normal_dot_wo); 
 
-
-
 			if (inner_sqrt_val < 0) {
 				// Total internal reflection
 				total_internal_reflection = true; 
 				material_has_specular = true; 
 			}
-
-
 		}
 
-		if (!total_internal_reflection) {
-			//material_is_transparent
+		if (!total_internal_reflection && material_is_transparent) {
+			//material is transparent or transmissive and total internal reflection happened
 
 			double parenthesis = mu * normal_dot_wo - sqrt(inner_sqrt_val);
 
@@ -100,7 +96,6 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 			final_color = final_color + color;
 
 			continue;
-
 		}
 
 
