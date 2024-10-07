@@ -64,21 +64,24 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 
 		if (material_is_transparent) {
 			mu = mat.getIndexOfRefraction(); 
-			if (0 <= r.d.dot(normal)) { 
+			if (0.0 <= r.d.dot(normal)) { 
 				// from_inside_material
-				mu = 1 / mu; 
+				mu = 1.0 / mu; 
 			}
 
+
 			// camera_ray may be -1 *
-			normal_dot_wo = camera_ray.dot(normal); 
+			// Vector3D inv_camera_ray = camera_ray * (-1); 
+			normal_dot_wo = camera_ray.dot(normal);
 
-			inner_sqrt_val = 1 - mu * mu * (1 - normal_dot_wo * normal_dot_wo); 
+			inner_sqrt_val = 1.0 - mu * mu * (1.0 - normal_dot_wo * normal_dot_wo);
 
-			if (inner_sqrt_val < 0) {
+			if (inner_sqrt_val < 0.0) {
 				// Total internal reflection
 				total_internal_reflection = true; 
 				material_has_specular = true; 
 			}
+			
 		}
 
 		if (!total_internal_reflection && material_is_transparent) {
@@ -86,14 +89,20 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 
 			double parenthesis = mu * normal_dot_wo - sqrt(inner_sqrt_val);
 
-			Vector3D refraction_dir = camera_ray * (-mu) + normal * parenthesis;
+			// -mu * w0
+			Vector3D left_term = camera_ray * (-mu); 
+			// n * ( [...] )
+			Vector3D right_term = normal * parenthesis;
+
+			Vector3D refraction_dir = left_term + right_term;
 
 			Ray refraction_ray = Ray(collision_point, refraction_dir, r.depth + 1); 
-			Vector3D color = computeColor(refraction_ray, objList, lsList);
+			Vector3D refracted_color = computeColor(refraction_ray, objList, lsList);
 
-			color = color * mat.getDiffuseReflectance(); 
+			// refracted_color = refracted_color * mat.getDiffuseReflectance(); 
+			// TODO: ^reenable later
 
-			final_color = final_color + color;
+			final_color = final_color + refracted_color;
 
 			continue;
 		}
