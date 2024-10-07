@@ -7,8 +7,20 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\shaders\\whittedintegrator.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\shaders\\whittedintegrator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\shaders\\whittedintegrator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\core\\intersection.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\core\\intersection.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\core\\utils.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\core\\utils.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\materials\\phong.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -23,20 +35,12 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\shaders\\depthshader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\shaders\\intersectionshader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\shaders\\intersectionshader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\core\\utils.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\core\\utils.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\core\\utils.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\core\\utils.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\shaders\\normalshader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -49,10 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\core\\intersection.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\core\\intersection.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\core\\intersection.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\core\\intersection.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\materials\\mirror.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -126,7 +126,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "intersection.h",
               "DocumentMoniker": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\core\\intersection.h",
               "RelativeDocumentMoniker": "src\\core\\intersection.h",
@@ -138,7 +138,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 3,
               "Title": "intersection.cpp",
               "DocumentMoniker": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\core\\intersection.cpp",
               "RelativeDocumentMoniker": "src\\core\\intersection.cpp",
@@ -146,7 +146,8 @@
               "RelativeToolTip": "src\\core\\intersection.cpp",
               "ViewState": "AgIAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-05T14:48:07.514Z"
+              "WhenOpened": "2024-10-05T14:48:07.514Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -246,7 +247,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "utils.h",
               "DocumentMoniker": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\core\\utils.h",
               "RelativeDocumentMoniker": "src\\core\\utils.h",
@@ -254,17 +255,18 @@
               "RelativeToolTip": "src\\core\\utils.h",
               "ViewState": "AgIAABAAAAAAAAAAAAAgwBUAAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-02T11:07:01.545Z"
+              "WhenOpened": "2024-10-02T11:07:01.545Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "whittedintegrator.h",
               "DocumentMoniker": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\shaders\\whittedintegrator.h",
               "RelativeDocumentMoniker": "src\\shaders\\whittedintegrator.h",
               "ToolTip": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\shaders\\whittedintegrator.h",
               "RelativeToolTip": "src\\shaders\\whittedintegrator.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-02T09:08:20.993Z",
               "EditorCaption": ""
@@ -277,14 +279,14 @@
               "RelativeDocumentMoniker": "src\\shaders\\whittedintegrator.cpp",
               "ToolTip": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\shaders\\whittedintegrator.cpp",
               "RelativeToolTip": "src\\shaders\\whittedintegrator.cpp",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAcwCwAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAHMAAACAZmZmZmYiwIQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-01T11:49:04.483Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "utils.cpp",
               "DocumentMoniker": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\core\\utils.cpp",
               "RelativeDocumentMoniker": "src\\core\\utils.cpp",
@@ -320,7 +322,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "normalshader.h",
               "DocumentMoniker": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\shaders\\normalshader.h",
               "RelativeDocumentMoniker": "src\\shaders\\normalshader.h",
@@ -332,7 +334,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "intersectionshader.cpp",
               "DocumentMoniker": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\shaders\\intersectionshader.cpp",
               "RelativeDocumentMoniker": "src\\shaders\\intersectionshader.cpp",
@@ -392,7 +394,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "phong.cpp",
               "DocumentMoniker": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\materials\\phong.cpp",
               "RelativeDocumentMoniker": "src\\materials\\phong.cpp",
@@ -400,12 +402,11 @@
               "RelativeToolTip": "src\\materials\\phong.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-01T08:53:28.407Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-01T08:53:28.407Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "normalshader.cpp",
               "DocumentMoniker": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\shaders\\normalshader.cpp",
               "RelativeDocumentMoniker": "src\\shaders\\normalshader.cpp",
@@ -413,12 +414,11 @@
               "RelativeToolTip": "src\\shaders\\normalshader.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-01T08:49:32.777Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-01T08:49:32.777Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "depthshader.cpp",
               "DocumentMoniker": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\shaders\\depthshader.cpp",
               "RelativeDocumentMoniker": "src\\shaders\\depthshader.cpp",
@@ -426,25 +426,24 @@
               "RelativeToolTip": "src\\shaders\\depthshader.cpp",
               "ViewState": "AgIAAAQAAABYZmZmZmYkwBUAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-01T08:48:44.203Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-01T08:48:44.203Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\main.cpp",
               "RelativeDocumentMoniker": "src\\main.cpp",
               "ToolTip": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\main.cpp",
               "RelativeToolTip": "src\\main.cpp",
-              "ViewState": "AgIAADMAAADAZmZmZmYqwFgAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAOIAAAAAAAAAAAAwwPAAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-01T08:46:49.257Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "depthshader.h",
               "DocumentMoniker": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\shaders\\depthshader.h",
               "RelativeDocumentMoniker": "src\\shaders\\depthshader.h",

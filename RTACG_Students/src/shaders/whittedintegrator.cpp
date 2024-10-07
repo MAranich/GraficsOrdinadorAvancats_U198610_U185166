@@ -14,7 +14,7 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 
 	// ambient light
 	Vector3D ambient = Vector3D(0.1);
-	bool REMOVE_EXTRA_AMBIENT = true; 
+	//bool REMOVE_EXTRA_AMBIENT = true; 
 
 	Intersection intersection; 
 	bool intersection_exists = Utils::getClosestIntersection(r, objList, intersection); 
@@ -49,7 +49,8 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 
 		const Material& mat = intersection.shape->getMaterial();
 		Vector3D normal = intersection.normal;
-		normal = normal.normalized(); 
+		//normal = normal.normalized(); 
+		//^already normalized
 
 		bool material_has_specular = mat.hasSpecular();
 		bool material_has_diffuse_glossy = mat.hasDiffuseOrGlossy(); 
@@ -66,12 +67,13 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 		// ^^^ Deafult values to avoid uninitilized memory
 
 		if (material_is_transparent) {
-			mu = mat.getIndexOfRefraction(); 
-			if (0.0 <= r.d.dot(normal)) { 
+			//mu = mat.getIndexOfRefraction(); 
+			mu = 0.7;
+			if (0.0 <= camera_ray.dot(normal)) {  //camera_ray instead of r.d?
 				// from_inside_material
 				mu = 1.0 / mu; 
+				normal = -normal; // normal -?
 			}
-
 
 			// camera_ray may be -1 *
 			// Vector3D inv_camera_ray = camera_ray * (-1); 
@@ -83,7 +85,7 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 				// Total internal reflection
 				total_internal_reflection = true; 
 				
-				printf("TIR"); 
+				//printf("TIR"); 
 				// this never happens with mu = 0.7???
 			}
 			
@@ -105,12 +107,12 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 
 			Ray refraction_ray = Ray(collision_point, refraction_dir, r.depth + 1); 
 			Vector3D refracted_color = computeColor(refraction_ray, objList, lsList); 
-			if (REMOVE_EXTRA_AMBIENT) {
-				refracted_color = refracted_color - ambient; 
-			}
+			//if (REMOVE_EXTRA_AMBIENT) {
+			//	refracted_color = refracted_color - ambient; 
+			// }
 
 			// refracted_color = refracted_color * mat.getDiffuseReflectance(); 
-			// TODO: ^reenable later
+			// TODO: ^reenable later, no se si pot ser diffuse?
 
 			final_color = final_color + refracted_color;
 
@@ -125,9 +127,9 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 			Ray reflected_ray = Ray(collision_point, reflected_ray_dir, r.depth + 1);
 
 			Vector3D reflected_color = computeColor(reflected_ray, objList, lsList);
-			if (REMOVE_EXTRA_AMBIENT) {
-				reflected_color = reflected_color - ambient;
-			}
+			//if (REMOVE_EXTRA_AMBIENT) {
+			//	reflected_color = reflected_color - ambient;
+			//}
 
 			final_color = final_color + reflected_color;
 			continue;
@@ -151,6 +153,7 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 		Vector3D increment = color * light->getIntensity(); 
 
 		final_color = final_color + increment;
+		//final_color = final_color + ambient;
 	}
 
 	final_color = final_color + ambient;
