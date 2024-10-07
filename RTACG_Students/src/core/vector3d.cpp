@@ -54,6 +54,11 @@ Vector3D Vector3D::operator/(const Vector3D a) const
 // Divide a vector by a scalar and return the result as a new object
 Vector3D Vector3D::operator/(const double a) const
 {
+    /*
+    if (a == 0) {
+        printf("DIVISION BY 0!\n"); 
+    }
+    */
     return Vector3D(x/a, y/a, z/a);
 }
 
@@ -143,6 +148,14 @@ Vector3D Vector3D::reflection(Vector3D normal) const
     Vector3D reflected_ray = normal * (2 * normal.dot(self)) - self;
 
     return reflected_ray;
+}
+
+void Vector3D::print() const
+{
+    //prints the values of the vector
+
+    printf("(%.2f, %.2f, %.2f)", x, y, z); 
+
 }
 
 

@@ -59,7 +59,7 @@ void buildSceneCornellBox(Camera*& cam, Film*& film,
     //Task 5.4
     // Material* transmissive = new Glass(Vector3D(5.0 / 255, 237.0 / 255, 144.0 / 255), 0.717);
     //Material* transmissive = new Glass(sqrt(2.0) / 2.0); // 0,707106
-    Material* transmissive = new Glass(0.99); // 0,707106
+    Material* transmissive = new Glass(0.7); // 0,707106
 
 
     /* ******* */

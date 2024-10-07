@@ -12,6 +12,9 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 	const std::vector<Shape*>&objList,
 	const std::vector<LightSource*>&lsList) const {
 
+	// ambient light
+	Vector3D ambient = Vector3D(0.1);
+	bool REMOVE_EXTRA_AMBIENT = true; 
 
 	Intersection intersection; 
 	bool intersection_exists = Utils::getClosestIntersection(r, objList, intersection); 
@@ -79,13 +82,15 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 			if (inner_sqrt_val < 0.0) {
 				// Total internal reflection
 				total_internal_reflection = true; 
-				material_has_specular = true; 
+				
+				printf("TIR"); 
+				// this never happens with mu = 0.7???
 			}
 			
 		}
 
 		if (!total_internal_reflection && material_is_transparent) {
-			//material is transparent or transmissive and total internal reflection happened
+			//material is transparent or transmissive and total internal reflection did NOT happen
 
 			double parenthesis = mu * normal_dot_wo - sqrt(inner_sqrt_val);
 
@@ -95,9 +100,14 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 			Vector3D right_term = normal * parenthesis;
 
 			Vector3D refraction_dir = left_term + right_term;
+			refraction_dir = refraction_dir.normalized();
+			//refraction_dir.print(); 
 
 			Ray refraction_ray = Ray(collision_point, refraction_dir, r.depth + 1); 
-			Vector3D refracted_color = computeColor(refraction_ray, objList, lsList);
+			Vector3D refracted_color = computeColor(refraction_ray, objList, lsList); 
+			if (REMOVE_EXTRA_AMBIENT) {
+				refracted_color = refracted_color - ambient; 
+			}
 
 			// refracted_color = refracted_color * mat.getDiffuseReflectance(); 
 			// TODO: ^reenable later
@@ -108,15 +118,18 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 		}
 
 
-		if (material_has_specular) {
-			// Is a mirror. 
+		if (material_has_specular || total_internal_reflection) {
+			// Is a mirror or transmissive and total internal reflection happened
 
 			Vector3D reflected_ray_dir = camera_ray.reflection(normal);
 			Ray reflected_ray = Ray(collision_point, reflected_ray_dir, r.depth + 1);
 
-			Vector3D color = computeColor(reflected_ray, objList, lsList);
+			Vector3D reflected_color = computeColor(reflected_ray, objList, lsList);
+			if (REMOVE_EXTRA_AMBIENT) {
+				reflected_color = reflected_color - ambient;
+			}
 
-			final_color = final_color + color;
+			final_color = final_color + reflected_color;
 			continue;
 
 		}
@@ -137,13 +150,9 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 		color = color * coef;
 		Vector3D increment = color * light->getIntensity(); 
 
-		//printf("%f\n", increment.length()); 
-
-
 		final_color = final_color + increment;
 	}
 
-	Vector3D ambient = Vector3D(0.05);
 	final_color = final_color + ambient;
 
 	return final_color;

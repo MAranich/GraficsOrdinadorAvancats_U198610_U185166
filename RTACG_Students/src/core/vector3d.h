@@ -33,7 +33,8 @@ struct Vector3D
     Vector3D normalized() const;
 
     double dot(Vector3D other) const; 
-    Vector3D reflection(Vector3D normal) const;
+    Vector3D reflection(Vector3D normal) const; 
+    void print() const; 
 
 
 
