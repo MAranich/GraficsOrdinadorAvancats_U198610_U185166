@@ -13,11 +13,13 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 	const std::vector<LightSource*>&lsList) const {
 
 
+	bool REMOVE_EXTRA_AMBIENT = true; 
+	bool LIGHT_DECAY = true; 
+	bool PARTIAL_COLOR_SHADOWS = true; 
+
 	// ambient light
 	Vector3D ambient = Vector3D(0.1);
-	bool REMOVE_EXTRA_AMBIENT = true; 
-	bool LIGHT_DECAY = false; 
-	bool PARTIAL_COLOR_SHADOWS = false; 
+
 
 	if (20 <= r.depth) {
 		//avoid infinite recursion
@@ -161,9 +163,11 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 			// instead of just setting= to black, give partial color
 			// give partial color to the shadow
 			color = color * 0.2; 
+			if (coef <= 0) {
+				// coef = max(coef, 0)
+				coef = 0;
+			}
 		}
-
-
 
 		/* 
 		if (coef == 0) printf("COEF 0\n");
@@ -172,14 +176,14 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 			coef = 0;
 		}
 		*/
+
 		double shadow_dist_sq = 1.0; 
 		if (LIGHT_DECAY) {
-			shadow_dist_sq = (collision_point - light->sampleLightPosition()).lengthSq();
-			//shadow_dist_sq = shadow_dist_sq / 50.0; 
-			if (shadow_dist_sq < 0.0) {
+			shadow_dist_sq = (collision_point - light_pos).lengthSq();
+			if (shadow_dist_sq < 1.0) {
 				shadow_dist_sq = 1.0; 
 			}
-			shadow_dist_sq = sqrt(shadow_dist_sq);
+			shadow_dist_sq = sqrt(shadow_dist_sq); // patch to get decent results
 			shadow_dist_sq = shadow_dist_sq * 0.2; // compensate for light strength
 		}
 
