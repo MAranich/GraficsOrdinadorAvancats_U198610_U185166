@@ -59,6 +59,7 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 		bool material_has_diffuse_glossy = mat.hasDiffuseOrGlossy(); 
 		bool material_is_transparent = mat.hasTransmission(); 
 		bool total_internal_reflection = false; 
+		bool from_interior = false; 
 
 
 		double normal_dot_wo = 0.0; 
@@ -69,7 +70,8 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 		if (material_is_transparent) {
 			mu = mat.getIndexOfRefraction(); 
 			//mu = 0.7;
-			if (0.0 <= camera_ray.dot(-normal)) {  //camera_ray instead of r.d?
+			from_interior = 0.0 <= camera_ray.dot(-normal); 
+			if (from_interior) {  //camera_ray instead of r.d?
 				// from_inside_material
 				mu = 1.0 / mu; 
 				normal = -normal; // normal -? // Crec que sí
@@ -84,9 +86,10 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 			if (inner_sqrt_val < 0.0) {
 				// Total internal reflection
 				total_internal_reflection = true; 
-				
-				//printf("TIR"); 
-				// this never happens with mu = 0.7???
+				if (from_interior) {
+					normal = -normal; 
+					// restaure normal to normal
+				}
 			}
 			
 		}
@@ -121,6 +124,13 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 
 		if (material_has_specular || total_internal_reflection) {
 			// Is a mirror or transmissive and total internal reflection happened
+
+			/*
+				from_interior = true => mat is_transparent && total_internal_reflection
+				from_interior = false => 
+						material_has_specular (mirror)
+						|| total_internal_reflection (from outside)
+			*/
 
 			Vector3D reflected_ray_dir = camera_ray.reflection(normal);
 			Ray reflected_ray = Ray(collision_point, reflected_ray_dir, r.depth + 1);
