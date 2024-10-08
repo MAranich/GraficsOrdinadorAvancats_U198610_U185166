@@ -12,9 +12,17 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 	const std::vector<Shape*>&objList,
 	const std::vector<LightSource*>&lsList) const {
 
+
 	// ambient light
 	Vector3D ambient = Vector3D(0.1);
-	//bool REMOVE_EXTRA_AMBIENT = true; 
+	bool REMOVE_EXTRA_AMBIENT = true; 
+	bool LIGHT_DECAY = false; 
+	bool PARTIAL_COLOR_SHADOWS = false; 
+
+	if (20 <= r.depth) {
+		//avoid infinite recursion
+		return ambient * 2.5; 
+	}
 
 	Intersection intersection; 
 	bool intersection_exists = Utils::getClosestIntersection(r, objList, intersection); 
@@ -40,12 +48,7 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 		double shadow_length = shadow_dir.length(); 
 		Vector3D shadow_dir_norm = shadow_dir / shadow_length;
 
-		Ray shadow_ray = Ray(collision_point, shadow_dir_norm, (size_t)0, Epsilon, shadow_length);
-		bool has_collided = Utils::hasIntersection(shadow_ray, objList);
 
-		if (has_collided) {
-			continue; 
-		}
 
 		const Material& mat = intersection.shape->getMaterial();
 		Vector3D normal = intersection.normal;
@@ -54,9 +57,6 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 
 		bool material_has_specular = mat.hasSpecular();
 		bool material_has_diffuse_glossy = mat.hasDiffuseOrGlossy(); 
-
-
-
 		bool material_is_transparent = mat.hasTransmission(); 
 		bool total_internal_reflection = false; 
 
@@ -67,17 +67,17 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 		// ^^^ Deafult values to avoid uninitilized memory
 
 		if (material_is_transparent) {
-			//mu = mat.getIndexOfRefraction(); 
-			mu = 0.7;
-			if (0.0 <= camera_ray.dot(normal)) {  //camera_ray instead of r.d?
+			mu = mat.getIndexOfRefraction(); 
+			//mu = 0.7;
+			if (0.0 <= camera_ray.dot(-normal)) {  //camera_ray instead of r.d?
 				// from_inside_material
 				mu = 1.0 / mu; 
-				normal = -normal; // normal -?
+				normal = -normal; // normal -? // Crec que sí
 			}
 
 			// camera_ray may be -1 *
 			// Vector3D inv_camera_ray = camera_ray * (-1); 
-			normal_dot_wo = camera_ray.dot(normal);
+			normal_dot_wo = camera_ray.dot(-normal);
 
 			inner_sqrt_val = 1.0 - mu * mu * (1.0 - normal_dot_wo * normal_dot_wo);
 
@@ -107,18 +107,17 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 
 			Ray refraction_ray = Ray(collision_point, refraction_dir, r.depth + 1); 
 			Vector3D refracted_color = computeColor(refraction_ray, objList, lsList); 
-			//if (REMOVE_EXTRA_AMBIENT) {
-			//	refracted_color = refracted_color - ambient; 
-			// }
+			if (REMOVE_EXTRA_AMBIENT) {
+				refracted_color = refracted_color - ambient; 
+			}
 
 			// refracted_color = refracted_color * mat.getDiffuseReflectance(); 
-			// TODO: ^reenable later, no se si pot ser diffuse?
+			// TODO: ^reenable later, no se si pot ser diffuse? // Es el filtre de color que vam dir
 
 			final_color = final_color + refracted_color;
 
 			continue;
 		}
-
 
 		if (material_has_specular || total_internal_reflection) {
 			// Is a mirror or transmissive and total internal reflection happened
@@ -127,18 +126,32 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 			Ray reflected_ray = Ray(collision_point, reflected_ray_dir, r.depth + 1);
 
 			Vector3D reflected_color = computeColor(reflected_ray, objList, lsList);
-			//if (REMOVE_EXTRA_AMBIENT) {
-			//	reflected_color = reflected_color - ambient;
-			//}
+			if (REMOVE_EXTRA_AMBIENT) {
+				reflected_color = reflected_color - ambient;
+			}
 
 			final_color = final_color + reflected_color;
 			continue;
 
 		}
 
-		Vector3D color = mat.getReflectance(normal, camera_ray, shadow_dir_norm);
+		Ray shadow_ray = Ray(collision_point, shadow_dir_norm, (size_t)0, Epsilon, shadow_length);
+		bool has_collided = Utils::hasIntersection(shadow_ray, objList);
 
+		Vector3D color = mat.getReflectance(normal, camera_ray, shadow_dir_norm);
 		double coef = normal.dot(shadow_dir_norm);
+		
+		if (has_collided) {
+			// No direct visibility
+			if (!PARTIAL_COLOR_SHADOWS) {
+				continue;
+			}
+			// instead of just setting= to black, give partial color
+			// give partial color to the shadow
+			color = color * 0.2; 
+		}
+
+
 
 		/* 
 		if (coef == 0) printf("COEF 0\n");
@@ -147,10 +160,19 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 			coef = 0;
 		}
 		*/
-
+		double shadow_dist_sq = 1.0; 
+		if (LIGHT_DECAY) {
+			shadow_dist_sq = (collision_point - light->sampleLightPosition()).lengthSq();
+			//shadow_dist_sq = shadow_dist_sq / 50.0; 
+			if (shadow_dist_sq < 0.0) {
+				shadow_dist_sq = 1.0; 
+			}
+			shadow_dist_sq = sqrt(shadow_dist_sq);
+			shadow_dist_sq = shadow_dist_sq * 0.2; // compensate for light strength
+		}
 
 		color = color * coef;
-		Vector3D increment = color * light->getIntensity(); 
+		Vector3D increment = color * light->getIntensity() / shadow_dist_sq;
 
 		final_color = final_color + increment;
 		//final_color = final_color + ambient;
@@ -159,8 +181,6 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 	final_color = final_color + ambient;
 
 	return final_color;
-
-
 }
 
 

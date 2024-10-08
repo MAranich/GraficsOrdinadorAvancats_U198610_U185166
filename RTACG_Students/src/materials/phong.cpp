@@ -21,7 +21,6 @@ Vector3D Phong::getReflectance(const Vector3D& n, const Vector3D& wo, const Vect
 
     //Vector3D reflected_ray = n * (2 * n.dot(wi)) - wi;
     Vector3D reflected_ray = wi.reflection(n); 
-    // ^exacly the same results. 
     double dot_p2 = pow(wo.dot(reflected_ray), alpha);
     Vector3D specular = Ks * dot_p2; 
 
