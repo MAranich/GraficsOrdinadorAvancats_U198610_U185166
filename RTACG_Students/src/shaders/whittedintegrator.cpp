@@ -68,6 +68,10 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 		// ^^^ Deafult values to avoid uninitilized memory
 
 		if (material_is_transparent) {
+			// camera_ray may be -1 *
+			// Vector3D inv_camera_ray = camera_ray * (-1); 
+			//normal_dot_wo = camera_ray.dot(normal);
+
 			mu = mat.getIndexOfRefraction(); 
 			//mu = 0.7;
 			from_interior = 0.0 <= camera_ray.dot(-normal); 
@@ -77,9 +81,7 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 				normal = -normal; // normal -? // Crec que sí
 			}
 
-			// camera_ray may be -1 *
-			// Vector3D inv_camera_ray = camera_ray * (-1); 
-			normal_dot_wo = camera_ray.dot(-normal);
+			normal_dot_wo = camera_ray.dot(normal);
 
 			inner_sqrt_val = 1.0 - mu * mu * (1.0 - normal_dot_wo * normal_dot_wo);
 
