@@ -13,9 +13,9 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 	const std::vector<LightSource*>&lsList) const {
 
 
-	bool REMOVE_EXTRA_AMBIENT = true; 
-	bool LIGHT_DECAY = true; 
-	bool PARTIAL_COLOR_SHADOWS = true; 
+	bool LIGHT_DECAY = false; 
+	bool PARTIAL_COLOR_SHADOWS = false;
+	bool PARTIAL_COLOR_SHADOWS_V2 = true;
 
 	// ambient light
 	Vector3D ambient = Vector3D(0.1);
@@ -41,8 +41,6 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 	// w0 (in reality = -camera ray)
 	Vector3D camera_ray = (r.o - intersection.itsPoint).normalized();
 	
-	//////////////////////////////////////////////
-
 	const Material& mat = intersection.shape->getMaterial();
 	Vector3D normal = intersection.normal;
 
@@ -104,16 +102,8 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 
 		Ray refraction_ray = Ray(collision_point, refraction_dir, r.depth + 1);
 		Vector3D refracted_color = computeColor(refraction_ray, objList, lsList);
-		if (REMOVE_EXTRA_AMBIENT) {
-			refracted_color = refracted_color - ambient;
-		}
 
-		// refracted_color = refracted_color * mat.getDiffuseReflectance(); 
-		// TODO: ^reenable later, no se si pot ser diffuse? // Es el filtre de color que vam dir
-
-		final_color = final_color + refracted_color;
-
-		return final_color;
+		return refracted_color;
 	}
 
 	if (material_has_specular || total_internal_reflection) {
@@ -130,12 +120,8 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 		Ray reflected_ray = Ray(collision_point, reflected_ray_dir, r.depth + 1);
 
 		Vector3D reflected_color = computeColor(reflected_ray, objList, lsList);
-		if (REMOVE_EXTRA_AMBIENT) {
-			reflected_color = reflected_color - ambient;
-		}
 
-		final_color = final_color + reflected_color;
-		return final_color; 
+		return reflected_color;
 	}
 
 
@@ -150,22 +136,14 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 		Ray shadow_ray = Ray(collision_point, shadow_dir_norm, (size_t)0, Epsilon, shadow_length);
 		bool has_collided = Utils::hasIntersection(shadow_ray, objList);
 
-		Vector3D color = mat.getReflectance(normal, camera_ray, shadow_dir_norm);
-		double coef = normal.dot(shadow_dir_norm);
-		
 		if (has_collided) {
 			// No direct visibility
-			if (!PARTIAL_COLOR_SHADOWS) {
-				continue;
-			}
-			// instead of just setting= to black, give partial color
-			// give partial color to the shadow
-			color = color * 0.2; 
-			if (coef <= 0) {
-				// coef = max(coef, 0)
-				coef = 0;
-			}
+			final_color = final_color + mat.getDiffuseReflectance() * ambient;
+			continue; 
 		}
+
+		Vector3D color = mat.getReflectance(normal, camera_ray, shadow_dir_norm);
+		double coef = normal.dot(shadow_dir_norm);
 
 		double shadow_dist_sq = 1.0; 
 		if (LIGHT_DECAY) {
