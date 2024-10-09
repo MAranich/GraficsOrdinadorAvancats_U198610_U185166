@@ -101,7 +101,11 @@ void buildSceneCornellBox(Camera*& cam, Film*& film,
     myScene.AddObject(square);
 
     PointLightSource* myPointLight = new PointLightSource(Vector3D(0, 2.5, 3.0), Vector3D(2.0));
+    //PointLightSource* myPointLight_2 = new PointLightSource(Vector3D(0, 0.0, 4.0), Vector3D(1.0, 0, 0));
+    //PointLightSource* myPointLight_2 = new PointLightSource(Vector3D(0, 0.0, 4.0), Vector3D(1.5));
+
     myScene.AddPointLight(myPointLight);
+    //myScene.AddPointLight(myPointLight_2);
 
 }
 
