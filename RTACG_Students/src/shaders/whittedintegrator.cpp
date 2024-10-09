@@ -14,7 +14,7 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 
 
 	bool REMOVE_EXTRA_AMBIENT = true; 
-	bool LIGHT_DECAY = true; 
+	bool LIGHT_DECAY = false; 
 	bool PARTIAL_COLOR_SHADOWS = true; 
 
 	// ambient light

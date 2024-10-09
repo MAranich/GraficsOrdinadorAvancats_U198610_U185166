@@ -146,8 +146,7 @@
               "RelativeToolTip": "src\\core\\intersection.cpp",
               "ViewState": "AgIAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-05T14:48:07.514Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-05T14:48:07.514Z"
             },
             {
               "$type": "Document",
@@ -255,8 +254,7 @@
               "RelativeToolTip": "src\\core\\utils.h",
               "ViewState": "AgIAABAAAAAAAAAAAAAgwBUAAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-02T11:07:01.545Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-02T11:07:01.545Z"
             },
             {
               "$type": "Document",
@@ -268,8 +266,7 @@
               "RelativeToolTip": "src\\shaders\\whittedintegrator.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-02T09:08:20.993Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-02T09:08:20.993Z"
             },
             {
               "$type": "Document",
@@ -279,7 +276,7 @@
               "RelativeDocumentMoniker": "src\\shaders\\whittedintegrator.cpp",
               "ToolTip": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\shaders\\whittedintegrator.cpp",
               "RelativeToolTip": "src\\shaders\\whittedintegrator.cpp",
-              "ViewState": "AgIAAHMAAACAZmZmZmYiwIQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAMjMzMzMDwBQAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-01T11:49:04.483Z",
               "EditorCaption": ""
@@ -436,7 +433,7 @@
               "RelativeDocumentMoniker": "src\\main.cpp",
               "ToolTip": "C:\\Users\\Marta\\Documents\\GitHub\\GraficsOrdinadorAvancats_U198610_U185166\\RTACG_Students\\src\\main.cpp",
               "RelativeToolTip": "src\\main.cpp",
-              "ViewState": "AgIAAOIAAAAAAAAAAAAwwPAAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAL4AAACAMzMzMzMbwOwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-01T08:46:49.257Z",
               "EditorCaption": ""
