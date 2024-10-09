@@ -14,8 +14,6 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 
 
 	bool LIGHT_DECAY = false; 
-	bool PARTIAL_COLOR_SHADOWS = false;
-	bool PARTIAL_COLOR_SHADOWS_V2 = true;
 
 	// ambient light
 	Vector3D ambient = Vector3D(0.1);
@@ -138,7 +136,6 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 
 		if (has_collided) {
 			// No direct visibility
-			final_color = final_color + mat.getDiffuseReflectance() * ambient;
 			continue; 
 		}
 
@@ -161,7 +158,7 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 		final_color = final_color + increment;
 	}
 
-	final_color = final_color + ambient;
+	final_color = final_color + ambient * mat.getDiffuseReflectance();
 
 	return final_color;
 }
