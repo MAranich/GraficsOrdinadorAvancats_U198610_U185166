@@ -13,7 +13,7 @@ Vector3D whittedintegrator::computeColor(const Ray & r,
 	const std::vector<LightSource*>&lsList) const {
 
 
-	bool LIGHT_DECAY = false; 
+	bool LIGHT_DECAY = true; 
 
 	// ambient light
 	Vector3D ambient = Vector3D(0.1);
