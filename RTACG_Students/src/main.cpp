@@ -34,7 +34,7 @@ typedef std::chrono::duration<double, std::milli> durationMs;
 
 #define DELTA 0.01
 #define KEY 0.4
-#define Lwhite 0.1f
+#define Lwhite 10.0f
 #define REINHARD true
 #define GAMMA 0.5f
 
