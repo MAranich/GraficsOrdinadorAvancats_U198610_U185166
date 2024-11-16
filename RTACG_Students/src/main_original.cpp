@@ -32,14 +32,6 @@ using namespace std::chrono;
 
 typedef std::chrono::duration<double, std::milli> durationMs;
 
-#define DELTA 0.01
-#define KEY 0.4
-#define Lwhite 0.1f
-#define REINHARD true
-#define GAMMA 0.5f
-
-#include <math.h>
-
 
 void buildSceneCornellBox(Camera*& cam, Film*& film,
     Scene myScene)
@@ -167,16 +159,10 @@ void buildSceneSphere(Camera*& cam, Film*& film,
 
 }
 
-
-
-void raytrace(Camera*& cam, Shader*& shader, Film*& film,
-    std::vector<Shape*>*& objectsList, std::vector<LightSource*>*& lightSourceList)
+void raytrace(Camera* &cam, Shader* &shader, Film* &film,
+              std::vector<Shape*>* &objectsList, std::vector<LightSource*>* &lightSourceList)
 {
-
-
-
-    Vector3D acc = (0.0, 0.0, 0.0);
-
+    
     double my_PI = 0.0;
     double n_estimations = 0.0;
     unsigned int sizeBar = 40;
@@ -186,14 +172,14 @@ void raytrace(Camera*& cam, Shader*& shader, Film*& film,
 
     // Main raytracing loop
     // Out-most loop invariant: we have rendered lin lines
-    for (size_t lin = 0; lin < resY; lin++)
+    for(size_t lin=0; lin<resY; lin++)
     {
         // Show progression 
         double progress = (double)lin / double(resY);
         Utils::printProgress(progress);
 
         // Inner loop invariant: we have rendered col columns
-        for (size_t col = 0; col < resX; col++)
+        for(size_t col=0; col<resX; col++)
         {
             // Compute the pixel position in NDC
             double x = (double)(col + 0.5) / resX;
@@ -205,54 +191,14 @@ void raytrace(Camera*& cam, Shader*& shader, Film*& film,
             // Compute ray color according to the used shader
             pixelColor += shader->computeColor(cameraRay, *objectsList, *lightSourceList);
 
-            //TONEMAPPING SUM
-            Vector3D sum = Vector3D(DELTA) + pixelColor;
-            Vector3D logsum = Vector3D(log(sum.x), log(sum.y), log(sum.z));
-
-            acc += logsum;
-
             // Store the pixel color
             film->setPixelValue(col, lin, pixelColor);
         }
     }
 
-    if (REINHARD) {
-
-        //TONEMAPPING AVG
-        Vector3D avg = Vector3D(exp(acc.x / (resY * resX)), exp(acc.y / (resY * resX)), exp(acc.z / (resY * resX)));
-
-        for (size_t lin = 0; lin < resY; lin++)
-        {
-            for (size_t col = 0; col < resX; col++)
-            {
-                Vector3D tmcolor = film->getPixelValue(col, lin) * KEY / avg;
-                Vector3D burn = ((1 + tmcolor.x / (Lwhite * Lwhite)), (1 + tmcolor.y / (Lwhite * Lwhite)), (1 + tmcolor.z / (Lwhite * Lwhite)));
-                tmcolor = Vector3D(tmcolor.x * burn.x / (1 + tmcolor.x), tmcolor.y * burn.y / (1 + tmcolor.y), tmcolor.z * burn.z / (1 + tmcolor.z));
-
-                film->setPixelValue(col, lin, tmcolor);
-            }
-        }
-    }
-    else {
-
-        // GAMMA CORRECTION
-        Vector3D Vin;
-        Vector3D Vout;
-
-        for (size_t lin = 0; lin < resY; lin++)
-        {
-            for (size_t col = 0; col < resX; col++)
-            {
-                Vin = film->getPixelValue(col, lin);
-
-                Vout = Vector3D(pow(Vin.x, GAMMA), pow(Vin.y, GAMMA), pow(Vin.z, GAMMA));
-
-                film->setPixelValue(col, lin, Vout);
-            }
-        }
-    }
 
 }
+
 
 //------------TASK 1---------------------//
 void PaintImage(Film* film)

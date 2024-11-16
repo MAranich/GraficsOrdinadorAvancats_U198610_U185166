@@ -17,36 +17,102 @@
 #include "shaders/intersectionshader.h"
 #include "shaders/depthshader.h"
 #include "shaders/normalshader.h"
-#include "shaders/whittedintegrator.h"
+#include "shaders/whittedshader.h"
 
+#include "shaders/hemisphericaldirectshader.h"
+#include "shaders/areadirectshader.h"
+#include "shaders/pptshader.h"
+#include "shaders/neeshader.h"
 
 
 #include "materials/phong.h"
-#include "materials/mirror.h"
-#include "materials/glass.h"
 #include "materials/emissive.h"
+#include "materials/mirror.h"
+#include "materials/transmissive.h"
 
 #include <chrono>
+
+#define DELTA 0.01
+#define KEY 0.4
+#include <math.h>
 
 using namespace std::chrono;
 
 typedef std::chrono::duration<double, std::milli> durationMs;
 
-#define DELTA 0.01
-#define KEY 0.4
-#define Lwhite 0.1f
-#define REINHARD true
-#define GAMMA 0.5f
-
-#include <math.h>
-
 
 void buildSceneCornellBox(Camera*& cam, Film*& film,
     Scene myScene)
 {
+    // LAB 2
     /* **************************** */
-    /* Declare and place the camera */
-    /* **************************** */
+/* Declare and place the camera */
+/* **************************** */
+    /*
+    Matrix4x4 cameraToWorld = Matrix4x4::translate(Vector3D(0, 0, -3));
+    double fovDegrees = 60;
+    double fovRadians = Utils::degreesToRadians(fovDegrees);
+    cam = new PerspectiveCamera(cameraToWorld, fovRadians, *film);
+    */
+    /* ********* */
+    /* Materials */
+    /* ********* */
+    /*
+    Material* redDiffuse = new Phong(Vector3D(0.7, 0.2, 0.3), Vector3D(0, 0, 0), 100);
+    Material* greenDiffuse = new Phong(Vector3D(0.2, 0.7, 0.3), Vector3D(0, 0, 0), 100);
+    Material* greyDiffuse = new Phong(Vector3D(0.8, 0.8, 0.8), Vector3D(0, 0, 0), 100);
+    Material* blueGlossy_20 = new Phong(Vector3D(0.2, 0.3, 0.8), Vector3D(0.2, 0.2, 0.2), 20);
+    Material* blueGlossy_80 = new Phong(Vector3D(0.2, 0.3, 0.8), Vector3D(0.2, 0.2, 0.2), 80);
+    Material* cyandiffuse = new Phong(Vector3D(0.2, 0.8, 0.8), Vector3D(0, 0, 0), 100);
+    Material* emissive = new Emissive(Vector3D(25, 25, 25), Vector3D(0.5));
+
+    Material* mirror = new Mirror();
+    Material* transmissive = new Transmissive(0.7);
+    */
+    /* ******* */
+    /* Objects */
+    /* ******* */
+    /*
+    double offset = 3.0;
+    Matrix4x4 idTransform;
+    // Construct the Cornell Box
+    Shape* leftPlan = new InfinitePlan(Vector3D(-offset - 1, 0, 0), Vector3D(1, 0, 0), redDiffuse);
+    Shape* rightPlan = new InfinitePlan(Vector3D(offset + 1, 0, 0), Vector3D(-1, 0, 0), greenDiffuse);
+    Shape* topPlan = new InfinitePlan(Vector3D(0, offset, 0), Vector3D(0, -1, 0), greyDiffuse);
+    Shape* bottomPlan = new InfinitePlan(Vector3D(0, -offset, 0), Vector3D(0, 1, 0), greyDiffuse);
+    Shape* backPlan = new InfinitePlan(Vector3D(0, 0, 3 * offset), Vector3D(0, 0, -1), greyDiffuse);
+    Shape* square_emissive = new Square(Vector3D(-1.0, 3.0, 3.0), Vector3D(2.0, 0.0, 0.0), Vector3D(0.0, 0.0, 2.0), Vector3D(0.0, -1.0, 0.0), emissive);
+
+
+    myScene.AddObject(leftPlan);
+    myScene.AddObject(rightPlan);
+    myScene.AddObject(topPlan);
+    myScene.AddObject(bottomPlan);
+    myScene.AddObject(backPlan);
+    myScene.AddObject(square_emissive);
+
+
+    // Place the Spheres inside the Cornell Box
+    double radius = 1;
+    Matrix4x4 sphereTransform1;
+    sphereTransform1 = Matrix4x4::translate(Vector3D(1.5, -offset + radius, 6));
+    Shape* s1 = new Sphere(radius, sphereTransform1, blueGlossy_20);
+
+    Matrix4x4 sphereTransform2;
+    sphereTransform2 = Matrix4x4::translate(Vector3D(-1.5, -offset + 3 * radius, 4));
+    Shape* s2 = new Sphere(radius, sphereTransform2, transmissive); //transmissive - blueGlossy_80
+
+    Shape* square = new Square(Vector3D(offset + 0.999, -offset - 0.2, 3.0), Vector3D(0.0, 4.0, 0.0), Vector3D(0.0, 0.0, 2.0), Vector3D(-1.0, 0.0, 0.0), mirror); //mirror - cyandiffuse
+
+    myScene.AddObject(s1);
+    myScene.AddObject(s2);
+    myScene.AddObject(square);
+    */
+
+    // LAB 1
+        /* **************************** */
+/* Declare and place the camera */
+/* **************************** */
     Matrix4x4 cameraToWorld = Matrix4x4::translate(Vector3D(0, 0, -3));
     double fovDegrees = 60;
     double fovRadians = Utils::degreesToRadians(fovDegrees);
@@ -57,7 +123,7 @@ void buildSceneCornellBox(Camera*& cam, Film*& film,
     /* ********* */
     Material* redDiffuse = new Phong(Vector3D(0.7, 0.2, 0.3), Vector3D(0, 0, 0), 100);
     Material* greenDiffuse = new Phong(Vector3D(0.2, 0.7, 0.3), Vector3D(0, 0, 0), 100);
-    Material* greyDiffuse = new Phong(Vector3D(0.8, 0.8, 0.8), Vector3D(0, 0, 0), 100);      
+    Material* greyDiffuse = new Phong(Vector3D(0.8, 0.8, 0.8), Vector3D(0, 0, 0), 100);
     Material* blueGlossy_20 = new Phong(Vector3D(0.2, 0.3, 0.8), Vector3D(0.8, 0.8, 0.8), 20);
     Material* blueGlossy_80 = new Phong(Vector3D(0.2, 0.3, 0.8), Vector3D(0.8, 0.8, 0.8), 80);
     Material* cyandiffuse = new Phong(Vector3D(0.2, 0.8, 0.8), Vector3D(0, 0, 0), 100);
@@ -65,9 +131,7 @@ void buildSceneCornellBox(Camera*& cam, Film*& film,
     //Task 5.3
     Material* mirror = new Mirror();
     //Task 5.4
-    // Material* transmissive = new Glass(Vector3D(5.0 / 255, 237.0 / 255, 144.0 / 255), 0.717);
-    //Material* transmissive = new Glass(sqrt(2.0) / 2.0); // 0,707106
-    Material* transmissive = new Glass(0.7); 
+    Material* transmissive = new Transmissive(0.7);
 
 
     /* ******* */
@@ -88,32 +152,26 @@ void buildSceneCornellBox(Camera*& cam, Film*& film,
     myScene.AddObject(bottomPlan);
     myScene.AddObject(backPlan);
 
-
     // Place the Spheres and square inside the Cornell Box
-    double radius = 1;         
+    double radius = 1;
     Matrix4x4 sphereTransform1;
     sphereTransform1 = Matrix4x4::translate(Vector3D(1.5, -offset + radius, 6));
-    Shape* s1 = new Sphere(radius, sphereTransform1, blueGlossy_20); 
+    Shape* s1 = new Sphere(radius, sphereTransform1, blueGlossy_20);
 
     Matrix4x4 sphereTransform2;
-    sphereTransform2 = Matrix4x4::translate(Vector3D(-1.5, -offset + 3*radius, 4));
-    //Shape* s2 = new Sphere(radius, sphereTransform2, blueGlossy_80);
-    //Shape* s2 = new Sphere(radius, sphereTransform2, mirror);
+    sphereTransform2 = Matrix4x4::translate(Vector3D(-1.5, -offset + 3 * radius, 4));
     Shape* s2 = new Sphere(radius, sphereTransform2, transmissive);
 
-    //Shape* square = new Square(Vector3D(offset + 0.999, -offset - 0.2, 3.0), Vector3D(0.0, 4.0, 0.0), Vector3D(0.0, 0.0, 2.0), Vector3D(-1.0, 0.0, 0.0), cyandiffuse);
-    Shape* square = new Square(Vector3D(offset + 0.999, -offset-0.2, 3.0), Vector3D(0.0, 4.0, 0.0), Vector3D(0.0, 0.0, 2.0), Vector3D(-1.0, 0.0, 0.0), mirror);
+    Shape* square = new Square(Vector3D(offset + 0.999, -offset - 0.2, 3.0), Vector3D(0.0, 4.0, 0.0), Vector3D(0.0, 0.0, 2.0), Vector3D(-1.0, 0.0, 0.0), mirror);
 
     myScene.AddObject(s1);
     myScene.AddObject(s2);
     myScene.AddObject(square);
 
-    PointLightSource* myPointLight = new PointLightSource(Vector3D(0, 2.5, 3.0), Vector3D(2.0));
-    //PointLightSource* myPointLight_2 = new PointLightSource(Vector3D(0, 0.0, 4.0), Vector3D(1.0, 0, 0));
-    //PointLightSource* myPointLight_2 = new PointLightSource(Vector3D(0, 0.0, 4.0), Vector3D(1.5));
-
+    PointLightSource* myPointLight = new PointLightSource(Vector3D(0, 2.5, 3.0), Vector3D(50.0));
     myScene.AddPointLight(myPointLight);
-    //myScene.AddPointLight(myPointLight_2);
+
+
 
 }
 
@@ -127,17 +185,18 @@ void buildSceneSphere(Camera*& cam, Film*& film,
       // By default, this gives an ID transform
       //  which means that the camera is located at (0, 0, 0)
       //  and looking at the "+z" direction
+   
     Matrix4x4 cameraToWorld;
     double fovDegrees = 60;
     double fovRadians = Utils::degreesToRadians(fovDegrees);
     cam = new PerspectiveCamera(cameraToWorld, fovRadians, *film);
 
 
-
+   
     /* ************************** */
     /* DEFINE YOUR MATERIALS HERE */
     /* ************************** */
-
+    
     Material* green_100 = new Phong(Vector3D(0.2, 0.7, 0.3), Vector3D(0.2, 0.6, 0.2), 50);
 
     // Define and place a sphere
@@ -159,21 +218,13 @@ void buildSceneSphere(Camera*& cam, Film*& film,
     myScene.AddObject(s1);
     myScene.AddObject(s2);
     myScene.AddObject(s3);
-   
-
-    PointLightSource* myPointLight = new PointLightSource(Vector3D(0, 2.5, 3.0), Vector3D(1.0));
-    myScene.AddPointLight(myPointLight); 
 
 
 }
 
-
-
 void raytrace(Camera*& cam, Shader*& shader, Film*& film,
     std::vector<Shape*>*& objectsList, std::vector<LightSource*>*& lightSourceList)
 {
-
-
 
     Vector3D acc = (0.0, 0.0, 0.0);
 
@@ -207,7 +258,7 @@ void raytrace(Camera*& cam, Shader*& shader, Film*& film,
 
             //TONEMAPPING SUM
             Vector3D sum = Vector3D(DELTA) + pixelColor;
-            Vector3D logsum = Vector3D(log(sum.x), log(sum.y), log(sum.z));
+            Vector3D logsum = (log(sum.x), log(sum.y), log(sum.z));
 
             acc += logsum;
 
@@ -216,67 +267,44 @@ void raytrace(Camera*& cam, Shader*& shader, Film*& film,
         }
     }
 
-    if (REINHARD) {
+    //TONEMAPPING AVG
+    Vector3D avg = (exp(acc.x / (resY * resX)), exp(acc.y / (resY * resX)), exp(acc.z / (resY * resX)));
+    float Lwhite = 100.0;
 
-        //TONEMAPPING AVG
-        Vector3D avg = Vector3D(exp(acc.x / (resY * resX)), exp(acc.y / (resY * resX)), exp(acc.z / (resY * resX)));
-
-        for (size_t lin = 0; lin < resY; lin++)
+    for (size_t lin = 0; lin < resY; lin++)
+    {
+        for (size_t col = 0; col < resX; col++)
         {
-            for (size_t col = 0; col < resX; col++)
-            {
-                Vector3D tmcolor = film->getPixelValue(col, lin) * KEY / avg;
-                Vector3D burn = ((1 + tmcolor.x / (Lwhite * Lwhite)), (1 + tmcolor.y / (Lwhite * Lwhite)), (1 + tmcolor.z / (Lwhite * Lwhite)));
-                tmcolor = Vector3D(tmcolor.x * burn.x / (1 + tmcolor.x), tmcolor.y * burn.y / (1 + tmcolor.y), tmcolor.z * burn.z / (1 + tmcolor.z));
+            Vector3D tmcolor = film->getPixelValue(col, lin) * KEY / avg;
+            Vector3D burn = ((1 + tmcolor.x/(Lwhite * Lwhite)), (1 + tmcolor.y / (Lwhite * Lwhite)), (1 + tmcolor.z / (Lwhite * Lwhite)));
+            tmcolor = Vector3D(tmcolor.x * burn.x / (1 + tmcolor.x), tmcolor.y * burn.y / (1 + tmcolor.y), tmcolor.z * burn.z / (1 + tmcolor.z));
 
-                film->setPixelValue(col, lin, tmcolor);
-            }
+            film->setPixelValue(col, lin, tmcolor);
         }
     }
-    else {
-
-        // GAMMA CORRECTION
-        Vector3D Vin;
-        Vector3D Vout;
-
-        for (size_t lin = 0; lin < resY; lin++)
-        {
-            for (size_t col = 0; col < resX; col++)
-            {
-                Vin = film->getPixelValue(col, lin);
-
-                Vout = Vector3D(pow(Vin.x, GAMMA), pow(Vin.y, GAMMA), pow(Vin.z, GAMMA));
-
-                film->setPixelValue(col, lin, Vout);
-            }
-        }
-    }
-
 }
+
 
 //------------TASK 1---------------------//
 void PaintImage(Film* film)
 {
     unsigned int sizeBar = 40;
 
-    double resX = (double)film->getWidth();
-    double resY = (double)film->getHeight();
-
-    size_t max_size = ((size_t)resY / sizeBar); 
+    size_t resX = film->getWidth();
+    size_t resY = film->getHeight();
 
     // Main Image Loop
     for (size_t lin = 0; lin < resY; lin++)
     {
         // Show progression
-        if (lin % max_size == 0)
+        if (lin % (resY / sizeBar) == 0)
             std::cout << ".";
 
         for (size_t col = 0; col < resX; col++)
         { 
             //CHANGE...()
-            Vector3D color = Vector3D(col / resX, lin / resY,0);
-            //Vector3D random_color = Vector3D(1.0* col/resX, 0.0, 0.0); gradient
-            //1.0 - float, 1 negre (integer)
+            //Vector3D random_color = Vector3D((double)rand() / RAND_MAX, (double)rand() / RAND_MAX, (double)rand() / RAND_MAX);  
+            Vector3D color = Vector3D((double)col / resX, (double)lin / resY, 0);
             film->setPixelValue(col,lin, color);
            
         }
@@ -295,16 +323,22 @@ int main()
 
 
     // Declare the shader
-    Vector3D bgColor(0.1, 0.1, 0.1); // Background color (for rays which do not intersect anything)
+    Vector3D bgColor(0.0, 0.0, 0.0); // Background color (for rays which do not intersect anything)
     Vector3D intersectionColor(1,0,0);
     
     //First Assignment
     Shader *shader = new IntersectionShader (intersectionColor, bgColor);
-    //for each pixel of the shader a ray, red or black (when it goes to infinity)
     Shader *depthshader = new DepthShader (intersectionColor,7.5f, bgColor);
-    Shader *normalshader = new NormalShader(intersectionColor, bgColor);
-    Shader *whittedintegrator2 = new whittedintegrator(bgColor);
+    Shader *normalshader = new NormalShader (intersectionColor, bgColor);
+    Shader *whittedshader = new WhittedShader (intersectionColor, bgColor);
     //(... normal, whitted) ...
+
+    // Lab 2
+    Shader* hemisphericaldirectshader = new HemisphericalDirectShader(intersectionColor, bgColor);
+    Shader* areadirectshader = new AreaDirectShader(intersectionColor, bgColor);
+    Shader* pptshader = new PPTShader(intersectionColor, bgColor);
+    Shader* neeshader = new NEEShader(intersectionColor, bgColor);
+
 
   
 
@@ -318,14 +352,39 @@ int main()
     buildSceneCornellBox(cam, film, myScene); //Task 5
 
     //---------------------------------------------------------------------------
+
     //Paint Image ONLY TASK 1
     PaintImage(film);
 
     // Launch some rays! TASK 2,3,...   
-    //Material* redDiffuse = new Phong(Vector3D(0.7, 0.2, 0.3), Vector3D(0, 0, 0), 100);
-    //Shader* shader_phong = new whittedintegrator(bgColor); 
     auto start = high_resolution_clock::now();
-    raytrace(cam, whittedintegrator2, film, myScene.objectsList, myScene.LightSourceList);
+    // Taks 2
+    //raytrace(cam, shader, film, myScene.objectsList, myScene.LightSourceList);
+ 
+    // Task 3
+    //raytrace(cam, depthshader, film, myScene.objectsList, myScene.LightSourceList);
+  
+    // Task 4
+    //raytrace(cam, normalshader, film, myScene.objectsList, myScene.LightSourceList);
+
+    // Task 5
+    raytrace(cam, whittedshader, film, myScene.objectsList, myScene.LightSourceList);
+
+
+    // ---------------------------------------------------------------- LAB 2 -------------------------------------------------------------------
+    
+    // Part 1.1 - Hemispherical Direct Illumination Sahder
+    //raytrace(cam, hemisphericaldirectshader, film, myScene.objectsList, myScene.LightSourceList);
+
+    // Part 1.2 - Area Direct Illumination Shader
+    //raytrace(cam, areadirectshader, film, myScene.objectsList, myScene.LightSourceList);
+    
+    // Part 2.1 - Pure Path Tracing Shader
+    //raytrace(cam, pptshader, film, myScene.objectsList, myScene.LightSourceList);
+
+    // Part 2.2 - Next Event Estimation (NEE) - once the matrials have been changed to diffuse
+    //raytrace(cam, neeshader, film, myScene.objectsList, myScene.LightSourceList);
+
     auto stop = high_resolution_clock::now();
 
     
